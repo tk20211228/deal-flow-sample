@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header";
 import { getBaseURL } from "@/lib/get-base-url";
+import Footer from "@/components/layout/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,10 +18,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
   title: {
-    template: "%s | DealFlow",
-    default: "DealFlow",
+    template: "%s | deal property",
+    default: "deal property",
   },
-  description: "DealFlow is a platform for managing deals",
+  description: "deal property is a platform for managing deals",
 };
 
 export default function RootLayout({
@@ -35,6 +36,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

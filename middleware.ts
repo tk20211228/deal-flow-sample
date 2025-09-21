@@ -11,7 +11,7 @@ const publicRoutes = [
 ]
 
 export async function middleware(request: NextRequest) {
-	const sessionCookie = getSessionCookie(request);
+	   const sessionCookie = getSessionCookie(request);
   const isPrivateRoute = !publicRoutes.includes(request.nextUrl.pathname);
 
     // THIS IS NOT SECURE!
@@ -27,12 +27,7 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-	matcher: [
-		/*
-			APIルート（/api）や、各種画像ファイル（png, jpg, jpeg, gif, svg, webp, ico など）、
-			Next.jsの静的ファイル（/_next/static, /_next/image）を除外します。
-			通常のページルートのみを対象にします。
-		*/
-		"/((?!api|_next/static|_next/image|favicon\\.ico|llms\\.txt|.*\\.(png|jpg|jpeg|gif|svg|webp|ico|bmp|tiff|avif)).*)",
-	]
+  // 下記のmatcherは、APIルート（/api）、静的ファイル（/static）、Next.jsの内部ファイル（_next）や拡張子付きファイル（画像やアイコンなど）を除外し、
+  // 通常のページルートのみをmiddlewareの対象。
+  matcher: ["/((?!api|static|.*\\..*|_next).*)"],
 };

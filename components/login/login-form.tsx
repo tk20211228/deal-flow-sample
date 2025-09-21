@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
 import logoTitle from "./logo-title.png";
+import { authClient } from "@/lib/auth-client";
+import GestLoginButton from "./gest-login-button";
 
 export function LoginForm({
   className,
@@ -46,6 +48,7 @@ export function LoginForm({
               <Button type="submit" className="w-full">
                 Login
               </Button>
+              <GestLoginButton />
               <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
                 <span className="bg-card text-muted-foreground relative z-10 px-2">
                   Or continue with
@@ -88,12 +91,12 @@ export function LoginForm({
               </div>
             </div>
           </form>
-          <div className="bg-muted relative hidden md:block">
+          <div className="bg-muted relative hidden md:flex items-center justify-center">
             <Image
               src={logoTitle}
               alt="Logo Title"
               placeholder="blur"
-              className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+              className="object-contain dark:brightness-[0.2] dark:grayscale"
             />
           </div>
         </CardContent>

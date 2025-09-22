@@ -38,8 +38,8 @@ const navs = [
         href: "/about",
       },
       {
-        title: "サービス3",
-        href: "/contact",
+        title: "クレジット",
+        href: "/credit",
       },
     ],
   },

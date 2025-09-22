@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@plugin "@tailwindcss/typography";
 
 :root {
   --sidebar: oklch(0.985 0 0);

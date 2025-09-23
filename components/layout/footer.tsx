@@ -34,8 +34,8 @@ const navs = [
         href: "/",
       },
       {
-        title: "サービス2",
-        href: "/about",
+        title: "ペット",
+        href: "/pets",
       },
       {
         title: "クレジット",

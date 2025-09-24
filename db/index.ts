@@ -1,13 +1,14 @@
-import { drizzle } from "drizzle-orm/postgres-js";
-import postgres from "postgres";
+import { drizzle } from "drizzle-orm/libsql/web";
 import * as authSchemas from "./schemas/auth";
-import * as petSchemas from "./schemas/pet";
+// import * as petSchemas from "./schemas/pet";
 
-const client = postgres(process.env.DATABASE_URL!, { prepare: false });
 export const db = drizzle({
-  client,
+  connection: {
+    url: process.env.TURSO_DATABASE_URL!,
+    authToken: process.env.TURSO_AUTH_TOKEN!,
+  },
   schema: {
     ...authSchemas,
-    ...petSchemas,
+    // ...petSchemas,
   },
 });

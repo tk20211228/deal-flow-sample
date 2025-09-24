@@ -14,9 +14,6 @@ export async function middleware(request: NextRequest) {
   const sessionCookie = getSessionCookie(request);
   const isPrivateRoute = !publicRoutes.includes(request.nextUrl.pathname);
 
-  // THIS IS NOT SECURE!
-  // This is the recommended approach to optimistically redirect users
-  // We recommend handling auth checks in each page/route
   if (!sessionCookie && isPrivateRoute) {
     // return NextResponse.redirect(new URL("/login?redirect=" + request.url, request.url));
     return NextResponse.redirect(new URL("/login", request.url));

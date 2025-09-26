@@ -7,5 +7,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function generateId() {
-  return nanoid(10);
+  return nanoid();
 }

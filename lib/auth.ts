@@ -5,6 +5,7 @@ import { nanoid } from "nanoid";
 import { getBaseURL } from "./get-base-url";
 import { anonymous } from "better-auth/plugins";
 import { nextCookies } from "better-auth/next-js";
+import { generateId } from "./utils";
 
 export const auth = betterAuth({
   baseURL: getBaseURL(),
@@ -14,7 +15,7 @@ export const auth = betterAuth({
   }),
   advanced: {
     database: {
-      generateId: () => nanoid(),
+      generateId: generateId,
     },
   },
   plugins: [anonymous(), nextCookies()],

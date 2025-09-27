@@ -11,6 +11,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { useIsActivePath } from "@/hooks/use-is-active-path";
+import Link from "next/link";
 
 export function NavMain({
   items,
@@ -51,9 +52,12 @@ export function NavMain({
               <SidebarMenuButton
                 tooltip={item.title}
                 isActive={isActivePath(item.url)}
+                asChild
               >
-                {item.icon && <item.icon />}
-                <span className="font-semibold">{item.title}</span>
+                <Link href={item.url}>
+                  {item.icon && <item.icon />}
+                  <span className="font-semibold">{item.title}</span>
+                </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}

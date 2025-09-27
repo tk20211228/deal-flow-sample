@@ -15,13 +15,13 @@ export default function GestLoginButton() {
           .anonymous()
           .then(() => {
             toast.success("ログインしました");
-            router.push("/mypage");
+            router.push("/dashboard");
           })
           .catch((error) => {
             console.error(error);
           });
       }}
-      variant="outline"
+      // variant="outline"
       type="button"
       className="w-full"
     >

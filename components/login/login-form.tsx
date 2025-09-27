@@ -1,11 +1,9 @@
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import Image from "next/image";
-import logoTitle from "./logo-title.png";
-import { authClient } from "@/lib/auth-client";
+import { cn } from "@/lib/utils";
+import HeroImage from "../marketing/hero-image";
 import GestLoginButton from "./gest-login-button";
 
 export function LoginForm({
@@ -19,39 +17,39 @@ export function LoginForm({
           <form className="p-6 md:p-8">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
-                <h1 className="text-2xl font-bold">Welcome back</h1>
+                <h1 className="text-2xl font-bold">おかえりなさい</h1>
                 <p className="text-muted-foreground text-balance">
-                  Login to your Acme Inc account
+                  アカウントにログインしてください
                 </p>
               </div>
               <div className="grid gap-3">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">メールアドレス</Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  placeholder="example@example.com"
                   required
                 />
               </div>
               <div className="grid gap-3">
                 <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password">パスワード</Label>
                   <a
                     href="#"
                     className="ml-auto text-sm underline-offset-2 hover:underline"
                   >
-                    Forgot your password?
+                    パスワードをお忘れですか？
                   </a>
                 </div>
                 <Input id="password" type="password" required />
               </div>
-              <Button type="submit" className="w-full">
+              {/* <Button type="submit" className="w-full">
                 Login
-              </Button>
+              </Button> */}
               <GestLoginButton />
               <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
                 <span className="bg-card text-muted-foreground relative z-10 px-2">
-                  Or continue with
+                  または以下でログイン
                 </span>
               </div>
               <div className="grid grid-cols-3 gap-4">
@@ -62,7 +60,7 @@ export function LoginForm({
                       fill="currentColor"
                     />
                   </svg>
-                  <span className="sr-only">Login with Apple</span>
+                  <span className="sr-only">Appleでログイン</span>
                 </Button>
                 <Button variant="outline" type="button" className="w-full">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -71,7 +69,7 @@ export function LoginForm({
                       fill="currentColor"
                     />
                   </svg>
-                  <span className="sr-only">Login with Google</span>
+                  <span className="sr-only">Googleでログイン</span>
                 </Button>
                 <Button variant="outline" type="button" className="w-full">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -80,30 +78,31 @@ export function LoginForm({
                       fill="currentColor"
                     />
                   </svg>
-                  <span className="sr-only">Login with Meta</span>
+                  <span className="sr-only">Metaでログイン</span>
                 </Button>
               </div>
               <div className="text-center text-sm">
-                Don&apos;t have an account?{" "}
+                アカウントをお持ちでないですか？{" "}
                 <a href="#" className="underline underline-offset-4">
-                  Sign up
+                  新規登録
                 </a>
               </div>
             </div>
           </form>
           <div className="bg-muted relative hidden md:flex items-center justify-center">
-            <Image
+            <HeroImage />
+            {/* <Image
               src={logoTitle}
               alt="Logo Title"
               placeholder="blur"
               className="object-contain dark:brightness-[0.2] dark:grayscale"
-            />
+            /> */}
           </div>
         </CardContent>
       </Card>
       <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
+        続行することで、<a href="#">利用規約</a> および
+        <a href="#">プライバシーポリシー</a>に同意したものとみなされます。
       </div>
     </div>
   );
